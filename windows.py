@@ -7,7 +7,7 @@ f = open("wordlist.txt", "r")
 word_list = set()
 for line in f.readlines():
     line = line.strip()
-    if(len(line)==5):
+    if(len(line) == 5):
         word_list.add(line)
 f.close
 word_list = list(word_list)
@@ -36,7 +36,7 @@ def draw_blocks():
 def check():
     var = e0.get()
     var = var.lower()
-    e0.delete("0","end")
+    e0.delete("0", "end")
     if(len(var) != 5):
         tk.messagebox.showerror(
             title='Error', message=f'require 5 alphabets, but received {len(var)}')
@@ -44,7 +44,7 @@ def check():
         tk.messagebox.showerror(
             title='Error', message=f'{var} is not in word list')
     else:
-        global times,end
+        global times, end
         correct = 0
         count = 0
         for i in var:
@@ -66,8 +66,9 @@ def check():
             tk.messagebox.showerror(title='Result', message=f'{times}/6')
             end = 1
             b0.config(state=tk.DISABLED)
-        elif(times==6):
-            tk.messagebox.showerror(title='Result', message=f'Failed!\nCorrect Answer:{answer}')
+        elif(times == 6):
+            tk.messagebox.showerror(
+                title='Result', message=f'Failed!\nCorrect Answer:{answer}')
             end = 1
             b0.config(state=tk.DISABLED)
 
